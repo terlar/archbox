@@ -1,0 +1,3 @@
+class fish {
+  package { 'fish': }
+}
