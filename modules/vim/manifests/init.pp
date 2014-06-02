@@ -1,8 +1,4 @@
 class vim {
-  package {
-    [
-      'vim',
-      'vim-spell-sv'
-    ]:
-  }
+  package { 'vim': }
+  package { 'vim-spell-sv': }
 }

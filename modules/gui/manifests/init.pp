@@ -1,7 +1,18 @@
 class gui {
-  group { 'video':
-    ensure => present
+  group { 'video': ensure => present }
+
+  include xmonad
+  include gtk
+  include fonts
+
+  package {
+    [
+      'arandr',
+      'gcolor2',
+      'scrot',
+      'baobab'
+    ]:
   }
 
-  include x11
+  aur::package { 'termite': }
 }

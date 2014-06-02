@@ -1,0 +1,3 @@
+class gpg {
+  package { 'gnupg': }
+}

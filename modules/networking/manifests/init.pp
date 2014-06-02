@@ -1,14 +1,4 @@
 class networking {
-  package {
-    [
-      'openssh',
-      'sshfs',
-      'mosh',
-      'monkeysphere',
-      'envoy-git'
-    ]:
-  }
-
   file { '/etc/resolv.conf':
     ensure => link,
     owner  => 'root',

@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
 forge 'http://forge.puppetlabs.com'
 
-mod 'puppetlabs/inifile'
+mod 'camptocamp/kmod'
+mod 'puppetlabs/vcsrepo'

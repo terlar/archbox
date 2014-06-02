@@ -4,8 +4,7 @@ class acpi {
 
   service { 'acpid':
     ensure    => running,
-    enable    => true,
-    hasstatus => false
+    enable    => true
   }
 
   Package[acpi] -> Package[acpid] -> Service[acpid]

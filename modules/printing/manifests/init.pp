@@ -1,13 +1,7 @@
 class printing {
-  group { 'lpadmin':
-    ensure => present
-  }
+  group { 'lpadmin': ensure => present }
 
-  package {
-    [
-      'cups',
-      'ghostscript',
-      'epson-inkjet-printer-escpr'
-    ]:
-  }
+  package { 'cups': }
+  package { 'ghostscript': }
+  aur::package { 'epson-inkjet-printer-escpr': }
 }

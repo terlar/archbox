@@ -1,9 +1,5 @@
 class building {
-  package {
-    [
-      'autoconf',
-      'automake',
-      'cmake'
-    ]:
-  }
+  package { 'autoconf': }
+  package { 'automake': }
+  package { 'cmake': }
 }

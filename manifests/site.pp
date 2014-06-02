@@ -9,43 +9,60 @@ Exec {
   ]
 }
 
-Package { ensure => 'installed' }
+Package {
+  ensure  => 'installed'
+}
 
 class core {
   include base
   include packaging
+  include vcs
+  include building
   include networking
+  include console
 
   include fish
   include vim
+
+  include users::root
+  include users::terje
 }
 
 node default {
   include core
+}
 
-  include audio
+node horse inherits default {
+  include core
+
+  include acpi
+  class { 'audio':
+    card => '1'
+  }
+  include bluetooth
+  include idevice
   include printing
+  include ssh::client
+
   include gui
+  include gui::audio
+  include gui::browser
+  include gui::pdf
 
-  include xmonad
+  include development
+  include mail
+  include music
+  include torrent
 
-  include users::terje
-}
+  include laptop::macbook
 
-class server {
-}
-
-class laptop {
-  include networking::wifi
-
-  include x11::intel
-  include x11::mtrack
-}
-
-node 'falcon.farm' inherits default {
-  include laptop
-}
-
-node 'horse.farm' inherits default {
-  include laptop
+  include services::dropbox
+  include services::elasticsearch
+  include services::memcached
+  include services::mongodb
+  include services::mysql
+  include services::nginx
+  include services::prax
+  include services::redis
+  include services::varnish
 }

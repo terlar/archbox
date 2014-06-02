@@ -1,2 +1,2 @@
-# Sync packages
-# Sync gems
+#!/usr/bin/env bash
+sudo puppet apply --modulepath=modules --verbose manifests/site.pp

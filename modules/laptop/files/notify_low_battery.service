@@ -1,0 +1,10 @@
+[Unit]
+Description=Notify Low Battery
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/notify_low_battery
+Environment=DISPLAY=:0
+
+[Install]
+WantedBy=multi-user.target

@@ -1,8 +1,10 @@
 FORGE
   remote: http://forge.puppetlabs.com
   specs:
-    puppetlabs/inifile (1.0.3)
+    camptocamp/kmod (0.0.1)
+    puppetlabs/vcsrepo (0.2.0)
 
 DEPENDENCIES
-  puppetlabs/inifile (>= 0)
+  camptocamp/kmod (>= 0)
+  puppetlabs/vcsrepo (>= 0)
 

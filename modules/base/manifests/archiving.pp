@@ -1,8 +1,4 @@
 class base::archiving {
-  package {
-    [
-      'unrar',
-      'unzip'
-    ]:
-  }
+  package { 'unrar': }
+  package { 'unzip': }
 }

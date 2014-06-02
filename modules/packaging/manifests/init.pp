@@ -1,5 +1,5 @@
 class packaging {
-  include packaging::aur
+  include aur
 
   package { 'abs': }
 }

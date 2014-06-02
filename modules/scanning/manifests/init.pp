@@ -1,0 +1,3 @@
+class scanning {
+  package { 'sane': }
+}

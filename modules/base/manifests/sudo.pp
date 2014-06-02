@@ -2,13 +2,13 @@
 class base::sudo {
   package { 'sudo': }
 
-  group { 'wheel':
-    ensure => present
-  }
+  group { 'wheel': ensure => present }
 
   file { '/etc/sudoers.d/allow-wheel':
     ensure  => present,
     content => '%wheel ALL=(ALL) ALL',
+    owner   => 'root',
+    group   => 'root',
     mode    => '0440',
     require => Package['sudo']
   }

@@ -1,9 +1,5 @@
 # Add and configure the user terje
 class users::terje inherits users {
-  include vim
-  include mutt
-  include fonts::source_code_pro
-
   $username = 'terje'
   $home     = "/home/${username}"
   $code     = "${home}/Code"
@@ -35,8 +31,43 @@ class users::terje inherits users {
     require => User[$username]
   }
 
-  #repository { $dotfiles:
-  #source  => 'terlar/dotfiles',
-  #require => File[$code]
-  #}
+  file { "${home}/.ssh":
+    ensure  => directory,
+    owner   => $username,
+    group   => 'users',
+    require => User[$username]
+  }
+
+  file { "${home}/.xmonad":
+    ensure  => directory,
+    owner   => $username,
+    group   => 'users',
+    require => User[$username]
+  }
+
+  file { "${home}/.xmonad/lib":
+    ensure  => directory,
+    owner   => $username,
+    group   => 'users',
+    require => File["${home}/.xmonad"]
+  }
+
+  vcsrepo { $dotfiles:
+    ensure   => present,
+    owner    => $username,
+    group    => 'users',
+    provider => 'git',
+    source   => 'https://github.com/terlar/dotfiles.git',
+    require  => [
+      Package['fish'],
+      File[$code],
+      File["${home}/.ssh"],
+      File["${home}/.xmonad/lib"]
+    ]
+  } ->
+  exec { 'fish install.fish --overwrite-all':
+    cwd         => $dotfiles,
+    environment => "HOME=${home}",
+    user        => $username
+  }
 }
