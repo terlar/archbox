@@ -22,7 +22,6 @@ class core {
   include console
 
   include fish
-  include vim
 
   include users::root
   include users::terje
@@ -48,6 +47,9 @@ node horse inherits default {
   include gui::audio
   include gui::browser
   include gui::pdf
+  class { 'vim':
+    gui => true
+  }
 
   include development
   include mail
