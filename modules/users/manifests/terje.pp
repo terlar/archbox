@@ -3,6 +3,7 @@ class users::terje inherits users {
   $username = 'terje'
   $home     = "/home/${username}"
   $code     = "${home}/Code"
+  $mail     = "${home}/Mail"
   $dotfiles = "${code}/dotfiles"
 
   user { $username:
@@ -29,6 +30,27 @@ class users::terje inherits users {
     owner   => $username,
     group   => 'users',
     require => User[$username]
+  }
+
+  file { $mail:
+    ensure  => directory,
+    owner   => $username,
+    group   => 'users',
+    require => User[$username]
+  }
+
+  file { "${mail}/personal":
+    ensure  => directory,
+    owner   => $username,
+    group   => 'users',
+    require => File[$mail]
+  }
+
+  file { "${mail}/work":
+    ensure  => directory,
+    owner   => $username,
+    group   => 'users',
+    require => File[$mail]
   }
 
   file { "${home}/.ssh":
