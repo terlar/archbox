@@ -6,9 +6,12 @@ class networking {
     target => '/run/systemd/network/resolv.conf'
   }
 
-  file { '/etc/systemd/network/20-dhcp.network':
+  file { '/etc/systemd/network':
     ensure => present,
-    source => 'puppet:///modules/networking/dhcp.network'
+    recurse => true,
+    owner   => 'root',
+    group   => 'root',
+    source => 'puppet:///modules/networking/systemd'
   }
 
   service { 'systemd-networkd':
@@ -17,7 +20,7 @@ class networking {
     hasstatus => false,
     require   => [
       File['/etc/resolv.conf'],
-      File['/etc/systemd/network/20-dhcp.network']
+      File['/etc/systemd/network']
     ]
   }
 }
