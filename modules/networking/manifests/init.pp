@@ -1,10 +1,5 @@
 class networking {
-  file { '/etc/resolv.conf':
-    ensure => link,
-    owner  => 'root',
-    group  => 'root',
-    target => '/run/systemd/network/resolv.conf'
-  }
+  include networking::dns
 
   file { '/etc/systemd/network':
     ensure => present,
@@ -17,10 +12,6 @@ class networking {
   service { 'systemd-networkd':
     ensure    => running,
     enable    => true,
-    hasstatus => false,
-    require   => [
-      File['/etc/resolv.conf'],
-      File['/etc/systemd/network']
-    ]
+    require   => File['/etc/systemd/network']
   }
 }
