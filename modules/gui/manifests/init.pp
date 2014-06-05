@@ -9,6 +9,7 @@ class gui {
     [
       'arandr',
       'gcolor2',
+      'feh',
       'scrot',
       'baobab'
     ]:
