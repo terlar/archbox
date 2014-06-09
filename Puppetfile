@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 forge 'http://forge.puppetlabs.com'
 
-mod 'camptocamp/kmod'
+mod 'puppetlabs/stdlib'
 mod 'puppetlabs/vcsrepo'
+mod 'camptocamp/kmod'

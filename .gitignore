@@ -1,3 +1,4 @@
 .tmp/
 modules/kmod
 modules/vcsrepo
+modules/stdlib
