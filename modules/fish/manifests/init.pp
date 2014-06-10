@@ -1,36 +1,20 @@
-class fish {
-  package { 'fish': }
+class fish(
+  $package_ensure   = $fish::params::package_ensure,
+  $package_name     = $fish::params::package_name,
+  $git_package_name = $fish::params::git_package_name,
+  $git              = $fish::params::git,
+  $plugins          = $fish::params::plugins
+) inherits fish::params {
 
-  vcsrepo { '/opt/fry':
-    ensure   => present,
-    provider => 'git',
-    source   => 'https://github.com/terlar/fry.git'
-  } ->
-  exec { 'install fry':
-    command => 'make install',
-    cwd     => '/opt/fry',
-    creates => '/usr/local/share/fry'
-  }
+  validate_string($package_ensure)
+  validate_array($package_name)
+  validate_array($git_package_name)
+  validate_bool($git)
+  validate_bool($plugins)
 
-  vcsrepo { '/opt/fish-farm':
-    ensure   => present,
-    provider => 'git',
-    source   => 'https://github.com/terlar/fish-farm.git'
-  } ->
-  exec { 'install fish-farm':
-    command => 'make install',
-    cwd     => '/opt/fish-farm',
-    creates => '/usr/local/share/fish-farm'
-  }
+  anchor { 'fish::begin': } ->
+  class { '::fish::install': } ->
+  class { '::fish::plugins': } ~>
+  anchor { 'fish::end': }
 
-  vcsrepo { '/opt/fish-tank':
-    ensure   => present,
-    provider => 'git',
-    source   => 'https://github.com/terlar/fish-tank.git'
-  } ->
-  exec { 'install fish-tank':
-    command => 'make install',
-    cwd     => '/opt/fish-tank',
-    creates => '/usr/local/share/fish-tank'
-  }
 }
