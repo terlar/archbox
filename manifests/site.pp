@@ -21,8 +21,6 @@ class core {
   include networking
   include console
 
-  include fish
-
   include users::root
   include users::terje
 }
@@ -31,8 +29,21 @@ node default {
   include core
 }
 
-node horse inherits default {
+node falcon {
   include core
+
+  class { 'fish':
+    git     => true,
+    plugins => true
+  }
+}
+
+node horse {
+  include core
+  class { 'fish':
+    git     => true,
+    plugins => true
+  }
 
   include acpi
   class { 'audio':
