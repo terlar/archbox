@@ -3,6 +3,6 @@ class services::prax {
     ensure   => present,
     provider => 'git',
     source   => 'https://github.com/ysbaddaden/prax.git',
-    revision => 'unstable'
+    revision => 'master'
   }
 }
