@@ -7,5 +7,9 @@ class music {
       'mopidy-spotify',
       'mopidy-soundcloud'
     ]:
+  } ->
+  service { 'mopidy':
+    ensure  => running,
+    enable  => true
   }
 }
