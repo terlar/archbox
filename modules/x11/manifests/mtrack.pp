@@ -1,7 +1,7 @@
 class x11::mtrack {
   aur::package { 'xf86-input-mtrack-git': }
 
-  file { '/usr/share/X11/xorg.conf.d/10-mtrack.conf':
+  file { '/etc/X11/xorg.conf.d/10-mtrack.conf':
     ensure  => present,
     owner   => 'root',
     group   => 'root',
