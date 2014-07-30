@@ -9,7 +9,7 @@ class music {
     ]:
   } ->
   service { 'mopidy':
-    ensure  => running,
-    enable  => true
+    ensure  => stopped,
+    enable  => false
   }
 }
