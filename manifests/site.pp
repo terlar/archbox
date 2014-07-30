@@ -31,11 +31,42 @@ node default {
 
 node falcon {
   include core
-
   class { 'fish':
     git     => true,
     plugins => true
   }
+
+  include acpi
+  include audio
+  include bluetooth
+  include idevice
+  include printing
+  include ssh::client
+
+  include gui
+  include gui::audio
+  include gui::browser
+  include gui::pdf
+  class { 'vim':
+    gui => true
+  }
+
+  include development
+  include mail
+  include music
+  include torrent
+
+  include laptop::macbook
+
+  include services::dropbox
+  include services::elasticsearch
+  include services::memcached
+  include services::mongodb
+  include services::mysql
+  include services::nginx
+  include services::prax
+  include services::redis
+  include services::varnish
 }
 
 node horse {
