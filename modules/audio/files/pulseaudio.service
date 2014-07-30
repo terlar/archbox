@@ -1,0 +1,11 @@
+[Unit]
+Description=PulseAudio Sound System
+Documentation=man:pulseaudio(1)
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/pulseaudio --start
+ExecStop=/usr/bin/pulseaudio --kill
+
+[Install]
+WantedBy=multi-user.target

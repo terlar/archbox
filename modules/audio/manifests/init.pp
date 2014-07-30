@@ -5,6 +5,22 @@ class audio($card=0) {
   package { 'pulseaudio-alsa': }
   package { 'alsa-utils': }
 
+  file { '/usr/lib/systemd/system/pulseaudio.service':
+    ensure => present,
+    owner  => 'root',
+    group  => 'root',
+    source => 'puppet:///modules/audio/pulseaudio.service'
+  }
+
+  service { 'pulseaudio':
+    ensure  => running,
+    enable  => true,
+    require => [
+      Package['pulseaudio'],
+      File['/usr/lib/systemd/system/pulseaudio.service']
+    ]
+  }
+
   file { '/etc/modprobe.d/alsa-base.conf':
     ensure  => present,
     content => 'options snd-hda-intel power_save=1 model=mbp101'
