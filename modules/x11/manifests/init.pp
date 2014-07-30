@@ -17,7 +17,7 @@ class x11 {
 
   aur::package { 'xlogin-git': }
 
-  file { '/etc/X11/xorg.conf.d/10-monitor.conf':
+  file { '/usr/share/X11/xorg.conf.d/10-monitor.conf':
     ensure  => present,
     owner   => 'root',
     group   => 'root',
