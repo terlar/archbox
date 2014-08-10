@@ -12,6 +12,7 @@ class console {
       'reptyr',
       'ranger',
       'vimpager',
+      'antiword',
       'unrtf',
       'cdrkit',
       'cmatrix',
