@@ -1,6 +1,11 @@
 class networking::dns {
   package { 'dnsmasq': }
 
+  service { 'systemd-resolved':
+    ensure    => running,
+    enable    => true
+  }
+
   file { '/etc/resolv.conf':
     ensure  => present,
     owner   => 'root',
@@ -21,6 +26,7 @@ class networking::dns {
     ensure  => running,
     enable  => true,
     require   => [
+      Service['systemd-resolved'],
       Package['dnsmasq'],
       File['/etc/resolv.conf'],
       File['/etc/dnsmasq.conf']
