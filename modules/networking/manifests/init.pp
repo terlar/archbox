@@ -1,5 +1,6 @@
 class networking {
   include networking::dns
+  include networking::mdns
 
   file { '/etc/systemd/network':
     ensure => present,
