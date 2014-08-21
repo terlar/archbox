@@ -3,15 +3,15 @@ class users::terje inherits users {
   $username  = 'terje'
   $home      = "/home/${username}"
 
-  $code      = "${home}/Code"
+  $code      = "${home}/code"
   $dotfiles  = "${code}/dotfiles"
 
-  $downloads = "${home}/Downloads"
-  $mail      = "${home}/Mail"
-  $music     = "${home}/Music"
-  $pictures  = "${home}/Pictures"
-  $videos    = "${home}/Videos"
-  $dropbox   = "${home}/Dropbox"
+  $downloads = "${home}/downloads"
+  $mail      = "${home}/mail"
+  $music     = "${home}/music"
+  $pictures  = "${home}/pictures"
+  $videos    = "${home}/videos"
+  $dropbox   = "${home}/dropbox"
 
   user { $username:
     ensure     => present,
@@ -95,33 +95,33 @@ class users::terje inherits users {
   }
 
   # Dropbox directories
-  file { "${home}/Books":
+  file { "${home}/books":
     ensure  => link,
-    target  => "${dropbox}/Books",
+    target  => "${dropbox}/books",
     owner   => $username,
     group   => 'users',
     require => User[$username]
   }
 
-  file { "${home}/Documents":
+  file { "${home}/documents":
     ensure  => link,
-    target  => "${dropbox}/Documents",
+    target  => "${dropbox}/documents",
     owner   => $username,
     group   => 'users',
     require => User[$username]
   }
 
-  file { "${home}/Learning":
+  file { "${home}/learning":
     ensure  => link,
-    target  => "${dropbox}/Learning",
+    target  => "${dropbox}/learning",
     owner   => $username,
     group   => 'users',
     require => User[$username]
   }
 
-  file { "${home}/Notes":
+  file { "${home}/notes":
     ensure  => link,
-    target  => "${dropbox}/Notes",
+    target  => "${dropbox}/notes",
     owner   => $username,
     group   => 'users',
     require => User[$username]
