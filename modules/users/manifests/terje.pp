@@ -11,7 +11,7 @@ class users::terje inherits users {
   $music     = "${home}/music"
   $pictures  = "${home}/pictures"
   $videos    = "${home}/videos"
-  $dropbox   = "${home}/dropbox"
+  $dropbox   = "${home}/Dropbox"
 
   user { $username:
     ensure     => present,
