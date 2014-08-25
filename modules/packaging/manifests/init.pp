@@ -1,6 +1,11 @@
 class packaging {
   include aur
 
-  package { 'abs': }
+  package {
+    [
+      'abs',
+      'pkgfile'
+    ]:
+  }
   aur::package { 'downgrader': }
 }
