@@ -1,5 +1,10 @@
 class networking::dns {
-  package { 'dnsmasq': }
+  package {
+    [
+      'dnsmasq',
+      'dnsutils'
+    ]:
+  }
 
   service { 'systemd-resolved':
     ensure    => running,
