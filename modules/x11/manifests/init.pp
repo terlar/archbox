@@ -11,7 +11,8 @@ class x11 {
       'xdg-utils',
       'xsel',
       'xclip',
-      'zenity'
+      'zenity',
+      'xcompmgr'
     ]:
   }
 
