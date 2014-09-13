@@ -15,5 +15,5 @@ class gui {
     ]:
   }
 
-  aur::package { 'termite': }
+  aur::package { 'termite-git': }
 }
