@@ -1,5 +1,10 @@
 class music {
-  package { 'ncmpcpp': }
+  package {
+    [
+      'mpc',
+      'ncmpcpp'
+    ]:
+  }
   aur::package {
     [
       'mopidy',
