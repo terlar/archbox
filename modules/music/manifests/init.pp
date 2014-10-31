@@ -10,6 +10,7 @@ class music {
       'mopidy',
       'mopidy-scrobbler',
       'mopidy-spotify',
+      'mopidy-spotify-tunigo',
       'mopidy-soundcloud'
     ]:
   } ->
