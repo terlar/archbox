@@ -20,7 +20,10 @@ class console {
   }
 
   aur::package { 'silver-searcher-git': }
+  aur::package { 'ngp': }
+  aur::package { 'mange': }
   aur::package { 'ctodo': }
+  aur::package { 'jrnl': }
 
   package { 'termit':
     provider => 'gem'
