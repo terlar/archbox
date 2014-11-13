@@ -5,4 +5,7 @@ class development {
 
   package { 'python2-pygments': }
   package { 'ctags': }
+
+  aur::package { 'jq': }
+  aur::package { 'nodejs-jsonlint': }
 }
