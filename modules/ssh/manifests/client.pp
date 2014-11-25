@@ -8,10 +8,8 @@ class ssh::client {
   }
 
   aur::package { 'envoy-git': } ->
-  service { 'envoy@ssh-agent.socket':
+  service { 'envoy@gpg-agent.service':
     ensure => running,
     enable => true
   }
-
-  aur::package { 'monkeysphere': }
 }
