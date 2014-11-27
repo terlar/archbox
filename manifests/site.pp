@@ -51,6 +51,8 @@ node falcon {
     gui => true
   }
 
+  include x11::joystick
+
   include development
   include mail
   include music
