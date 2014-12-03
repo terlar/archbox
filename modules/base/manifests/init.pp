@@ -15,13 +15,6 @@ class base {
     ]:
   }
 
-  file { '/etc/issue':
-    ensure => present,
-    owner  => 'root',
-    group  => 'root',
-    source => 'puppet:///modules/base/issue.bright'
-  }
-
   file { '/etc/systemd/journald.conf':
     ensure => present,
     owner  => 'root',
