@@ -14,7 +14,7 @@ class printing {
     require => Package['cups']
   }
 
-  service { 'cups':
+  service { 'cups-browsed':
     ensure  => running,
     enable  => true,
     require => [
