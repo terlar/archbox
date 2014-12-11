@@ -8,4 +8,5 @@ class development {
 
   aur::package { 'jq': }
   aur::package { 'nodejs-jsonlint': }
+  aur::package { 'aws-cli': }
 }
