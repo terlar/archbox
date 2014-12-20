@@ -1,41 +1,35 @@
-#!/bin/sh
-INTERVAL=120 # in seconds
+#!/usr/bin/env bash
 LOW_LEVEL=20 # in minutes
 CRITICAL_LEVEL=10 # in minutes
 BATTERY_PATH=/sys/class/power_supply/BAT0
 
 if [ -e "$BATTERY_PATH" ]; then
-  while true
-  do
-    BATTERY_ON=$(cat $BATTERY_PATH/status)
+	BATTERY_ON=$(cat $BATTERY_PATH/status)
 
-    if [ "$BATTERY_ON" == "Discharging" ]; then
-      BATTERY_CHARGE=$(cat $BATTERY_PATH/energy_now)
-      BATTERY_USAGE=$(cat $BATTERY_PATH/power_now)
-      MINUTES_LEFT=$(echo "60*$BATTERY_CHARGE/$BATTERY_USAGE" | bc)
+	if [ "$BATTERY_ON" == "Discharging" ]; then
+		BATTERY_CHARGE=$(cat $BATTERY_PATH/energy_now)
+		BATTERY_USAGE=$(cat $BATTERY_PATH/power_now)
+		MINUTES_LEFT=$(echo "60*$BATTERY_CHARGE/$BATTERY_USAGE" | bc)
 
-      hour=$(echo "$MINUTES_LEFT/60" | bc)
-      min=$(echo "$MINUTES_LEFT-$hour*60" | bc)
-      DISPLAY_TIME=$hour"h "$min"min"
+		hour=$(echo "$MINUTES_LEFT/60" | bc)
+		min=$(echo "$MINUTES_LEFT-$hour*60" | bc)
+		DISPLAY_TIME=$hour"h "$min"min"
 
-      if [ "$MINUTES_LEFT" -lt "$CRITICAL_LEVEL" ]; then
-        notify-send -i battery "Out of battery" "Suspending now..."
-        sleep 5
-        systemctl suspend
-      elif [ "$MINUTES_LEFT" -lt "$LOW_LEVEL" ]; then
-        for i in {1..3}
-        do
-          xbacklight -set 5
-          sleep 0.5
-          xbacklight -set 15
-          sleep 0.5
-        done
-        xbacklight -set 5
+		if [ "$MINUTES_LEFT" -lt "$CRITICAL_LEVEL" ]; then
+			notify-send -i battery "Out of battery" "Suspending now..."
+			sleep 5
+			systemctl suspend
+		elif [ "$MINUTES_LEFT" -lt "$LOW_LEVEL" ]; then
+			for i in {1..3}
+			do
+				xbacklight -set 5
+				sleep 0.5
+				xbacklight -set 15
+				sleep 0.5
+			done
+			xbacklight -set 5
 
-        notify-send -i battery "Battery level is low!" "$DISPLAY_TIME remains."
-      fi
-    fi
-
-    sleep $INTERVAL
-  done
+			notify-send -i battery "Battery level is low!" "$DISPLAY_TIME remains."
+		fi
+	fi
 fi
