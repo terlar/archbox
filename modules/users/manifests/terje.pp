@@ -19,6 +19,7 @@ class users::terje inherits users {
     gid        => 'users',
     groups     => [
       'audio',
+      'docker',
       'lpadmin',
       'users',
       'video',
