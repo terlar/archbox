@@ -1,5 +1,6 @@
 class base {
   include base::sudo
+  include base::ntp
   include base::archiving
   include base::filesystems
 
