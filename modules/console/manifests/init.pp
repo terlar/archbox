@@ -16,6 +16,7 @@ class console {
       'unrtf',
       'cdrkit',
       'cmatrix',
+      'gnu-netcat',
     ]:
   }
 
