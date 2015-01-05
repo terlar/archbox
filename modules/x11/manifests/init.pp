@@ -12,7 +12,8 @@ class x11 {
       'xsel',
       'xclip',
       'zenity',
-      'xcompmgr'
+      'xcompmgr',
+      'x11-ssh-askpass',
     ]:
   }
 
