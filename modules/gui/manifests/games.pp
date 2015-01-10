@@ -5,6 +5,7 @@ class gui::games {
   package { 'fceux': }
   package { 'snes9x-gtk': }
   package { 'scummvm': }
+  package { 'ppsspp': }
   aur::package { 'steam': }
   aur::package { 'dolphin-emu': }
 }
