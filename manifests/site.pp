@@ -19,6 +19,7 @@ class core {
   include vcs
   include building
   include networking
+  include kmscon
   include console
 
   include users::root
