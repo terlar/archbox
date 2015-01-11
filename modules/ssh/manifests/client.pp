@@ -3,7 +3,8 @@ class ssh::client {
     [
       'openssh',
       'sshfs',
-      'mosh'
+      'mosh',
+      'sshpass'
     ]:
   }
 
