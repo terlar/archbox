@@ -17,7 +17,7 @@ class kmscon {
 
   file { '/usr/lib/systemd/system/autovt@.service':
     ensure  => 'link',
-    target  => '/etc/systemd/system/kmsconvt@.service',
+    target  => '/usr/lib/systemd/system/kmsconvt@.service',
     require => Package['kmscon']
   }
 
