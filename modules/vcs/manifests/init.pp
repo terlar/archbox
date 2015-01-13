@@ -1,4 +1,4 @@
 class vcs {
   package { 'git': }
-  aur::package { 'hub-git': }
+  aur::package { 'hub-bin': }
 }
