@@ -7,13 +7,13 @@ if [ -e "$BATTERY_PATH" ]; then
 	BATTERY_ON=$(cat $BATTERY_PATH/status)
 
 	if [ "$BATTERY_ON" == "Discharging" ]; then
-		BATTERY_CHARGE=$(cat $BATTERY_PATH/energy_now)
-		BATTERY_USAGE=$(cat $BATTERY_PATH/power_now)
-		MINUTES_LEFT=$(echo "60*$BATTERY_CHARGE/$BATTERY_USAGE" | bc)
+		CHARGE_NOW=$(cat $BATTERY_PATH/charge_now)
+		CURRENT_NOW=$(cat $BATTERY_PATH/current_now)
+		MINUTES_LEFT=$(echo "60*$CHARGE_NOW/$CURRENT_NOW" | bc)
 
-		hour=$(echo "$MINUTES_LEFT/60" | bc)
-		min=$(echo "$MINUTES_LEFT-$hour*60" | bc)
-		DISPLAY_TIME=$hour"h "$min"min"
+		hrs=$(echo "$MINUTES_LEFT/60" | bc)
+		min=$(echo "$MINUTES_LEFT-$hrs*60" | bc)
+		DISPLAY_TIME="${hrs}h ${min}min"
 
 		if [ "$MINUTES_LEFT" -lt "$CRITICAL_LEVEL" ]; then
 			notify-send -i battery "Out of battery" "Suspending now..."
@@ -22,12 +22,12 @@ if [ -e "$BATTERY_PATH" ]; then
 		elif [ "$MINUTES_LEFT" -lt "$LOW_LEVEL" ]; then
 			for i in {1..3}
 			do
-				xbacklight -set 5
+				xbacklight -set 10
 				sleep 0.5
-				xbacklight -set 15
+				xbacklight -set 20
 				sleep 0.5
 			done
-			xbacklight -set 5
+			xbacklight -set 10
 
 			notify-send -i battery "Battery level is low!" "$DISPLAY_TIME remains."
 		fi
