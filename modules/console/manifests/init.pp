@@ -17,6 +17,7 @@ class console {
       'cdrkit',
       'cmatrix',
       'gnu-netcat',
+      'httpie',
     ]:
   }
 
@@ -25,6 +26,7 @@ class console {
   aur::package { 'mange': }
   aur::package { 'ctodo': }
   aur::package { 'jrnl': }
+  aur::package { 'httping': }
 
   package { 'termit':
     provider => 'gem'
