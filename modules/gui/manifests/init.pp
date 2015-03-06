@@ -10,6 +10,7 @@ class gui {
       'arandr',
       'gcolor2',
       'feh',
+      'sxiv',
       'scrot',
       'baobab'
     ]:
