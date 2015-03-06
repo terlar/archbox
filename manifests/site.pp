@@ -62,14 +62,8 @@ node falcon {
   include laptop::macbook
 
   include services::dropbox
-  include services::elasticsearch
-  include services::memcached
-  include services::mongodb
-  include services::mysql
   include services::nginx
   include services::prax
-  include services::redis
-  include services::varnish
 }
 
 node horse {
@@ -104,12 +98,6 @@ node horse {
   include laptop::macbook
 
   include services::dropbox
-  include services::elasticsearch
-  include services::memcached
-  include services::mongodb
-  include services::mysql
   include services::nginx
   include services::prax
-  include services::redis
-  include services::varnish
 }
