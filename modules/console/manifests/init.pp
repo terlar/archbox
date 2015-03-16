@@ -18,6 +18,7 @@ class console {
       'cmatrix',
       'gnu-netcat',
       'httpie',
+      'units',
     ]:
   }
 
