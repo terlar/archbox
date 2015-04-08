@@ -4,7 +4,7 @@ class development {
   include development::vagrant
   include development::docker
 
-  package { 'python2-pygments': }
+  package { 'pygmentize': }
   package { 'ctags': }
 
   aur::package { 'jq': }
