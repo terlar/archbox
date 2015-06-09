@@ -19,6 +19,7 @@ class console {
       'gnu-netcat',
       'httpie',
       'units',
+      'youtube-dl'
     ]:
   }
 
