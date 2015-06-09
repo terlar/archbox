@@ -4,7 +4,9 @@ class fonts::extended {
       'ttf-freefont',
       'ttf-linux-libertine',
       'ttf-symbola',
-      'wqy-zenhei'
+      'wqy-zenhei',
+      'ttf-tibetan-machine',
+      'ttf-indic-otf'
     ]:
   }
 }
