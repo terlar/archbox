@@ -7,8 +7,8 @@ class fish(
 ) inherits fish::params {
 
   validate_string($package_ensure)
-  validate_array($package_name)
-  validate_array($git_package_name)
+  validate_string($package_name)
+  validate_string($git_package_name)
   validate_bool($git)
   validate_bool($plugins)
 
