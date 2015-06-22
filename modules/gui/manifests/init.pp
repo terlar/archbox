@@ -7,6 +7,7 @@ class gui {
 
   package {
     [
+      'termite',
       'arandr',
       'gcolor2',
       'feh',
@@ -15,6 +16,4 @@ class gui {
       'baobab'
     ]:
   }
-
-  aur::package { 'termite-git': }
 }
