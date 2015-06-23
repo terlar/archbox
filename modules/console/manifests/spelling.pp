@@ -1,6 +1,12 @@
 class console::spelling {
-  package { 'aspell': }
-  package { 'rlwrap': }
-  aur::package { 'aspell-sv': }
+  package {
+    [
+      'aspell',
+      'aspell-en',
+      'aspell-sv',
+      'rlwrap'
+    ]:
+  }
+
   aur::package { 'translate-shell-git': }
 }
