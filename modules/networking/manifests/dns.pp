@@ -2,7 +2,7 @@ class networking::dns {
   package {
     [
       'dnsmasq',
-      'dnsutils'
+      'bind-tools'
     ]:
   }
 
