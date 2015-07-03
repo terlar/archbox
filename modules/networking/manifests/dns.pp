@@ -1,23 +1,5 @@
 class networking::dns {
-  package {
-    [
-      'dnsmasq',
-      'bind-tools'
-    ]:
-  }
-
-  service { 'systemd-resolved':
-    ensure    => running,
-    enable    => true
-  }
-
-  file { '/etc/resolv.conf':
-    ensure  => present,
-    owner   => 'root',
-    group   => 'root',
-    source  => 'puppet:///modules/networking/resolv.conf',
-    require => Package['dnsmasq']
-  }
+  package { 'dnsmasq': }
 
   file { '/etc/dnsmasq.conf':
     ensure  => present,
@@ -30,7 +12,7 @@ class networking::dns {
   service { 'dnsmasq':
     ensure  => running,
     enable  => true,
-    require   => [
+    require => [
       Service['systemd-resolved'],
       Package['dnsmasq'],
       File['/etc/resolv.conf'],
