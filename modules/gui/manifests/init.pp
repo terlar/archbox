@@ -13,7 +13,8 @@ class gui {
       'feh',
       'sxiv',
       'scrot',
-      'baobab'
+      'baobab',
+      'goldendict',
     ]:
   }
 }
