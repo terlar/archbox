@@ -20,7 +20,8 @@ class console {
       'httpie',
       'units',
       'youtube-dl',
-      'bind-tools'
+      'bind-tools',
+      'texlive-core',
     ]:
   }
 
