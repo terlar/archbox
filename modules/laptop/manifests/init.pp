@@ -1,6 +1,7 @@
 class laptop {
   package { 'powertop': }
   package { 'smartmontools': }
+  package { 'lm_sensors': }
 
   file { '/usr/bin/notify_low_battery':
     ensure => present,
