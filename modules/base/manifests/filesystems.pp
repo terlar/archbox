@@ -1,3 +1,3 @@
 class base::filesystems {
-  aur::package { 'exfat-git': }
+  package { 'exfat-utils': }
 }

@@ -22,10 +22,10 @@ class console {
       'youtube-dl',
       'bind-tools',
       'texlive-core',
+      'the_silver_searcher',
     ]:
   }
 
-  aur::package { 'silver-searcher-git': }
   aur::package { 'ngp': }
   aur::package { 'mange': }
   aur::package { 'ctodo': }
