@@ -23,6 +23,7 @@ class console {
       'bind-tools',
       'texlive-core',
       'the_silver_searcher',
+      'moc',
     ]:
   }
 
