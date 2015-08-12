@@ -6,7 +6,8 @@ class console::monitoring {
       'iotop',
       'ncdu',
       'dfc',
-      'perf'
+      'perf',
+      'mtr',
     ]:
   }
 }
