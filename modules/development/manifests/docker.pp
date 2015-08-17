@@ -8,4 +8,11 @@ class development::docker {
     enable  => true,
     require => Package['docker']
   }
+
+  file { '/etc/systemd/system/docker.service.d':
+    owner   => 'root',
+    group   => 'root',
+    source  => 'puppet:///modules/development/systemd/system/docker.service.d',
+    recurse => true
+  }
 }
