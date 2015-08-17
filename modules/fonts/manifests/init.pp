@@ -3,6 +3,7 @@ class fonts {
   include fonts::extended
   include fonts::monospaced
 
+  aur::package { 'font-manager': }
   package { 'freetype2': }
   package { 'fontconfig': }
 
