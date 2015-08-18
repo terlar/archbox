@@ -15,6 +15,7 @@ class gui {
       'scrot',
       'baobab',
       'goldendict',
+      'gifsicle',
     ]:
   }
 }
