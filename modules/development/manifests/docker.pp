@@ -10,6 +10,8 @@ class development::docker {
   }
 
   file { '/etc/systemd/system/docker.service.d':
+    ensure  => present,
+    replace => 'no',
     owner   => 'root',
     group   => 'root',
     source  => 'puppet:///modules/development/systemd/system/docker.service.d',
