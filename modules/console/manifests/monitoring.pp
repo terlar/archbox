@@ -1,6 +1,7 @@
 class console::monitoring {
   package {
     [
+      'progress',
       'htop',
       'iftop',
       'iotop',
