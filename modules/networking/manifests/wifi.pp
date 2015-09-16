@@ -1,4 +1,4 @@
-class networking::wifi($interface='wlp3s0b1') {
+class networking::wifi($interface='wlp3s0') {
   package { 'wpa_supplicant': }
 
   file { '/etc/wpa_supplicant.conf':
