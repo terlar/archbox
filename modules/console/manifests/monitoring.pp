@@ -2,6 +2,7 @@ class console::monitoring {
   package {
     [
       'progress',
+      'glances',
       'htop',
       'iftop',
       'iotop',
