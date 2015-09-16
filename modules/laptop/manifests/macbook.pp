@@ -6,7 +6,7 @@ class laptop::macbook inherits laptop {
 
   aur::package { 'broadcom-wl-dkms': }
 
-  aur::package { 'macfanctld-git': } ->
+  aur::package { 'macfanctld': } ->
   service { 'macfanctld':
     ensure => running,
     enable => true
