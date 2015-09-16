@@ -4,7 +4,7 @@ class users::terje inherits users {
   $home      = "/home/${username}"
 
   $code      = "${home}/code"
-  $dotfiles  = "${code}/dotfiles"
+  $dotfiles  = "${code}/terlar/dotfiles"
 
   $downloads = "${home}/downloads"
   $mail      = "${home}/mail"
