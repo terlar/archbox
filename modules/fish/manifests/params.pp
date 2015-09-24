@@ -6,7 +6,7 @@ class fish::params {
 
   case $::osfamily {
     'Archlinux': {
-      $git_package_name = 'fish-shell-git'
+      $git_package_name = 'fish-git'
       $package_name = 'fish'
     }
     'Linux': {
