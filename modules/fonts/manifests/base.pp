@@ -3,17 +3,15 @@ class fonts::base {
     [
       'ttf-dejavu',
       'ttf-liberation',
-      'ttf-droid',
-      'ttf-ubuntu-font-family',
     ]:
   }
 
   aur::package {
     [
-      'ttf-opensans',
+      'ttf-input',
+      'ttf-google-fonts-git',
       'ttf-mac-fonts',
       'ttf-vista-fonts',
-      'ttf-roboto'
     ]:
   }
 }
