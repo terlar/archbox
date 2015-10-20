@@ -44,7 +44,6 @@ class laptop {
   }
 
   service { 'powertop':
-    ensure  => running,
     enable  => true,
     require => [
       Package['powertop'],
