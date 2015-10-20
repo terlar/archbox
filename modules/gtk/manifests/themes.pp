@@ -9,6 +9,7 @@ class gtk::themes {
     [
       'gtk-theme-arc',
       'paper-gtk-theme-git',
+      'paper-icon-theme-git',
     ]:
   }
 }
