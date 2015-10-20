@@ -11,7 +11,7 @@ class fonts::base {
       'ttf-input',
       'ttf-google-fonts-git',
       'ttf-mac-fonts',
-      'ttf-vista-fonts',
+      'ttf-ms-win10',
     ]:
   }
 }
