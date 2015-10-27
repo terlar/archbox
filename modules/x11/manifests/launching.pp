@@ -1,3 +1,6 @@
 class x11::launching {
-  aur::package { 'dmenu-xft': }
+  package { 'dmenu':
+    provider => 'aur',
+    name     => 'dmenu-xft',
+  }
 }

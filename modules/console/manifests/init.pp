@@ -27,11 +27,15 @@ class console {
     ]:
   }
 
-  aur::package { 'ngp': }
-  aur::package { 'mange': }
-  aur::package { 'ctodo': }
-  aur::package { 'jrnl': }
-  aur::package { 'httping': }
+  package {
+    [
+      'ngp',
+      'mange',
+      'ctodo',
+      'jrnl',
+      'httping',
+    ]: provider => 'aur',
+  }
 
   package { 'termit':
     provider => 'gem'

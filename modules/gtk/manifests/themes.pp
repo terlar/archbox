@@ -5,11 +5,15 @@ class gtk::themes {
     ]:
   }
 
-  aur::package {
-    [
-      'gtk-theme-arc',
-      'paper-gtk-theme-git',
-      'paper-icon-theme-git',
-    ]:
+  package { 'gtk-theme-arc':
+    provider => 'aur',
+  }
+  package { 'paper-gtk-theme':
+    provider => 'aur',
+    name     => 'paper-gtk-theme-git',
+  }
+  package { 'paper-icon-theme':
+    provider => 'aur',
+    name     => 'paper-icon-theme-git',
   }
 }

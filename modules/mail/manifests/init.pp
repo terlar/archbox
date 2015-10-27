@@ -7,12 +7,14 @@ class mail {
       'notmuch',
       'notmuch-mutt',
       'w3m',
-      'sqlite'
+      'sqlite',
     ]:
   }
-  aur::package { 'urlview': }
+  package { 'urlview':
+    provider => 'aur',
+  }
 
   package { 'ppl':
-    provider => 'gem'
+    provider => 'gem',
   }
 }

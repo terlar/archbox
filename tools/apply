@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-sudo puppet apply --modulepath=modules --verbose manifests/site.pp
+puppet apply --modulepath=modules --libdir=lib --verbose manifests/site.pp

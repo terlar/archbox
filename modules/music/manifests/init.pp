@@ -2,20 +2,22 @@ class music {
   package {
     [
       'mpc',
-      'ncmpcpp'
+      'ncmpcpp',
     ]:
   }
-  aur::package {
+
+  package {
     [
       'mopidy',
       'mopidy-scrobbler',
       'mopidy-spotify',
       'mopidy-spotify-tunigo',
-      'mopidy-soundcloud'
-    ]:
-  } ->
+      'mopidy-soundcloud',
+    ]: provider => 'aur',
+  }
+
   service { 'mopidy':
-    ensure  => stopped,
-    enable  => false
+    enable  => false,
+    require => Package['mopidy'],
   }
 }

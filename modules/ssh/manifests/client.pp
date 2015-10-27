@@ -3,14 +3,19 @@ class ssh::client {
     [
       'openssh',
       'sshfs',
+      'sshpass',
       'mosh',
-      'sshpass'
     ]:
   }
 
-  aur::package { 'envoy-git': } ->
+  package { 'envoy':
+    provider => 'aur',
+    name     => 'envoy-git',
+  }
+
   service { 'envoy@gpg-agent.service':
-    ensure => running,
-    enable => true
+    ensure  => running,
+    enable  => true,
+    require => Package['envoy'],
   }
 }

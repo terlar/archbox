@@ -2,12 +2,18 @@ class fonts {
   include fonts::base
   include fonts::extended
 
-  aur::package {
+  package {
     [
-      'font-manager',
-      'fontmatrix-git',
+      'fontconfig',
+      'freetype2',
     ]:
   }
-  package { 'freetype2': }
-  package { 'fontconfig': }
+
+  package { 'font-manager':
+    provider => 'aur',
+  }
+  package { 'fontmatrix':
+    provider => 'aur',
+    name     => 'fontmatrix-git',
+  }
 }

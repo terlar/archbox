@@ -17,8 +17,12 @@ class x11 {
     ]:
   }
 
-  aur::package { 'redshift-minimal': }
-  aur::package { 'xcape': }
+  package {
+    [
+      'xcape',
+      'redshift-minimal',
+    ]: provider => 'aur',
+  }
 
   file { '/etc/X11/xorg.conf.d/10-monitor.conf':
     ensure  => present,

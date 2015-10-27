@@ -4,10 +4,18 @@ class development {
   include development::vagrant
   include development::docker
 
-  package { 'pygmentize': }
-  package { 'ctags': }
+  package {
+    [
+      'pygmentize',
+      'jq',
+      'ctags',
+    ]:
+  }
 
-  aur::package { 'jq': }
-  aur::package { 'nodejs-jsonlint': }
-  aur::package { 'aws-cli': }
+  package {
+    [
+      'nodejs-jsonlint',
+      'aws-cli',
+    ]: provider => 'aur',
+  }
 }

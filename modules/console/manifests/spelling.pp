@@ -4,9 +4,12 @@ class console::spelling {
       'aspell',
       'aspell-en',
       'aspell-sv',
-      'rlwrap'
+      'rlwrap',
     ]:
   }
 
-  aur::package { 'translate-shell-git': }
+  package { 'translate-shell':
+    provider => 'aur',
+    name     => 'translate-shell-git',
+  }
 }

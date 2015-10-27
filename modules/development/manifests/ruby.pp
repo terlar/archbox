@@ -1,4 +1,8 @@
 class development::ruby {
   package { 'ruby': }
-  aur::package { 'ruby-install-git': }
+
+  package { 'ruby-install':
+    provider => 'aur',
+    name     => 'ruby-install-git',
+  }
 }

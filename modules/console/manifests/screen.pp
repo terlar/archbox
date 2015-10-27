@@ -1,5 +1,11 @@
 class console::screen {
   package { 'tmux': }
-  aur::package { 'tmate': }
-  aur::package { 'wemux-git': }
+
+  package { 'tmate':
+    provider => 'aur',
+  }
+  package { 'wemux':
+    provider => 'aur',
+    name     => 'wemux-git',
+  }
 }

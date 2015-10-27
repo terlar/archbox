@@ -14,7 +14,7 @@ fi
 pacman -Sy
 
 # Install Ruby
-pacman -S --noconfirm --needed ruby
+pacman -S --noconfirm --needed ruby curl
 
 # Install Puppet and Facter
 gem install puppet facter --no-ri --no-rdoc --no-user-install
@@ -23,3 +23,6 @@ gem install puppet facter --no-ri --no-rdoc --no-user-install
 groupadd puppet
 
 cp `gem contents puppet | grep puppet.service` /usr/lib/systemd/system
+
+# Add aurget for AUR package support
+pacman --noconfirm --needed -U packages/aurget-4.6.0-1-any.pkg.tar.xz

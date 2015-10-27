@@ -1,6 +1,16 @@
 class gui::browser {
-  package { 'firefox': }
-  package { 'flashplugin': }
-  aur::package { 'google-talkplugin': }
-  aur::package { 'pentadactyl-git': }
+  package {
+    [
+      'firefox',
+      'flashplugin',
+    ]:
+  }
+
+  package { 'google-talkplugin':
+    provider => 'aur',
+  }
+  package { 'pentadactyl':
+    provider => 'aur',
+    name     => 'pentadactyl-git',
+  }
 }

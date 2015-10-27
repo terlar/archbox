@@ -6,12 +6,15 @@ class fonts::base {
     ]:
   }
 
-  aur::package {
+  package {
     [
       'ttf-input',
-      'ttf-google-fonts-git',
       'ttf-mac-fonts',
       'ttf-ms-win10',
-    ]:
+    ]: provider => 'aur',
+  }
+  package { 'ttf-google-fonts':
+    provider => 'aur',
+    name     => 'ttf-google-fonts-git',
   }
 }

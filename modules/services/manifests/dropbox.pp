@@ -1,3 +1,3 @@
 class services::dropbox {
-  aur::package { 'dropbox': }
+  package { 'dropbox': }
 }

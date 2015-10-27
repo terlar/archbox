@@ -28,6 +28,10 @@ class core {
 
 node default {
   include core
+  class { 'fish':
+    git     => false,
+    plugins => false
+  }
 }
 
 node falcon {

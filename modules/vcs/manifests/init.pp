@@ -1,5 +1,13 @@
 class vcs {
-  package { 'git': }
-  package { 'tig': }
-  aur::package { 'hub-bin': }
+  package {
+    [
+      'git',
+      'tig',
+    ]:
+  }
+
+  package { 'hub':
+    provider => 'aur',
+    name     => 'hub-bin',
+  }
 }
