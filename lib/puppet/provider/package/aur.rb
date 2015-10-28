@@ -22,6 +22,10 @@ Puppet::Type.type(:package).provide :aur, :parent => Puppet::Provider::Package d
     cmd << "-S" << @resource[:name]
 
     aurget(*cmd)
+
+    unless self.query
+      fail("Could not find package '#{@resource[:name]}'")
+    end
   end
 
   # Fetch the list of packages that are currently installed on the system.
