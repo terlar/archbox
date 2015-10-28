@@ -1,14 +1,14 @@
 class music {
   package {
     [
-      'mpc',
+      'mopidy',
       'ncmpcpp',
+      'mpc',
     ]:
   }
 
   package {
     [
-      'mopidy',
       'mopidy-scrobbler',
       'mopidy-spotify',
       'mopidy-spotify-tunigo',
