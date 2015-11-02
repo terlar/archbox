@@ -12,6 +12,7 @@ class console {
       'reptyr',
       'ranger',
       'vimpager',
+      'pdfgrep',
       'antiword',
       'unrtf',
       'cdrkit',
