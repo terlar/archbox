@@ -16,7 +16,7 @@ class x11 {
       'xclip',
       'zenity',
       'xcompmgr',
-      'x11-ssh-askpass',
+      'gksu',
     ]:
   }
 
