@@ -8,6 +8,8 @@ class x11 {
     [
       'xorg-server',
       'xorg-server-utils',
+      'lightdm',
+      'lightdm-gtk-greeter',
       'xdg-utils',
       'xsel',
       'xclip',
@@ -29,14 +31,11 @@ class x11 {
     owner   => 'root',
     group   => 'root',
     source  => 'puppet:///modules/x11/xorg.conf.d/10-monitor.conf',
-    require => Package['xorg-server']
+    require => Package['xorg-server'],
   }
 
-  file { '/etc/X11/Xwrapper.config':
-    ensure  => present,
-    owner   => 'root',
-    group   => 'root',
-    source  => 'puppet:///modules/x11/Xwrapper.config',
-    require => Package['xorg-server']
+  service { 'lightdm':
+    enable    => true,
+    require => Package['lightdm'],
   }
 }
