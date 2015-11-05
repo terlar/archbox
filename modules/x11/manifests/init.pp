@@ -34,6 +34,14 @@ class x11 {
     require => Package['xorg-server'],
   }
 
+  file { '/etc/lightdm/lightdm-gtk-greeter.conf':
+    ensure  => present,
+    owner   => 'root',
+    group   => 'root',
+    source  => 'puppet:///modules/x11/lightdm/lightdm-gtk-greeter.conf',
+    require => Package['lightdm'],
+  }
+
   service { 'lightdm':
     enable    => true,
     require => Package['lightdm'],

@@ -18,4 +18,11 @@ class gui {
       'gifsicle',
     ]:
   }
+
+  file { '/usr/share/pixmaps/wallpaper.png':
+    ensure  => present,
+    owner   => 'root',
+    group   => 'root',
+    source  => 'puppet:///modules/gui/pixmaps/wallpaper.png',
+  }
 }
