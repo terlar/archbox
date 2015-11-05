@@ -10,6 +10,7 @@ class x11 {
       'xorg-server-utils',
       'lightdm',
       'lightdm-gtk-greeter',
+      'polkit-gnome',
       'xdg-utils',
       'xsel',
       'xclip',
