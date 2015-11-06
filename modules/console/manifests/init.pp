@@ -35,6 +35,7 @@ class console {
       'ctodo',
       'jrnl',
       'httping',
+      'playerctl',
     ]: provider => 'aur',
   }
 

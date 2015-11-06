@@ -12,6 +12,7 @@ class gui {
       'gcolor2',
       'feh',
       'sxiv',
+      'gpicview',
       'scrot',
       'baobab',
       'goldendict',

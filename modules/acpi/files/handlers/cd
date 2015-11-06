@@ -1,0 +1,8 @@
+#!/usr/bin/sh
+for user in $(w -h | awk '{print $1}' | uniq); do
+	case $1 in
+		play) su -l -c "mpc toggle; mocp --toggle-pause" $user ;;
+		next) su -l -c "mpc next; mocp --next" $user ;;
+		prev) su -l -c "mpc prev; mocp --previous" $user ;;
+	esac
+done
