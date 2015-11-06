@@ -20,14 +20,4 @@ class kmscon {
     target  => '/usr/lib/systemd/system/kmsconvt@.service',
     require => Package['kmscon']
   }
-
-  service { 'getty@tty1':
-    enable    => false,
-    require   => File['/etc/systemd/network']
-  }
-
-  service { 'kmsconvt@tty1':
-    enable    => true,
-    require   => Package['kmscon']
-  }
 }

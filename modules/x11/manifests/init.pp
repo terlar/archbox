@@ -44,7 +44,11 @@ class x11 {
   }
 
   service { 'lightdm':
-    enable    => true,
+    enable  => true,
     require => Package['lightdm'],
+  }
+
+  service { 'getty@tty1':
+    enable => false,
   }
 }
