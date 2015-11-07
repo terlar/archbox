@@ -1,8 +1,14 @@
 #!/usr/bin/sh
 for user in $(w -h | awk '{print $1}' | uniq); do
+	dbus_pid=$(pgrep -ou $user dbus-daemon)
+	dbus_env="/proc/$dbus_pid/environ"
+	if [ -f "$dbus_env" ]; then
+		export $(grep -z DBUS_SESSION_BUS_ADDRESS $dbus_env)
+	fi
+
 	case $1 in
-		play) su -l -c "mpc toggle; mocp --toggle-pause" $user ;;
-		next) su -l -c "mpc next; mocp --next" $user ;;
-		prev) su -l -c "mpc prev; mocp --previous" $user ;;
+		play) su -c "mpc toggle; mocp --toggle-pause; playerctl play-pause" $user ;;
+		next) su -c "mpc next; mocp --next; playerctl next" $user ;;
+		prev) su -c "mpc prev; mocp --previous; playerctl previous" $user ;;
 	esac
 done
