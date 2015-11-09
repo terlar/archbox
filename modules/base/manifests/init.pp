@@ -23,13 +23,6 @@ class base {
     source => 'puppet:///modules/base/systemd/journald.conf'
   }
 
-  file { '/etc/systemd/system/getty@tty1.service.d':
-    owner   => 'root',
-    group   => 'root',
-    source  => 'puppet:///modules/base/systemd/system/getty@tty1.service.d',
-    recurse => true
-  }
-
   file { '/etc/systemd/system/systemd-fsck@.service.d':
     owner   => 'root',
     group   => 'root',
