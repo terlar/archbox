@@ -78,9 +78,7 @@ node horse {
   }
 
   include acpi
-  class { 'audio':
-    card => '1'
-  }
+  include audio
   include bluetooth
   include idevice
   include printing

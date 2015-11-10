@@ -1,2 +1,2 @@
 event=button/volumedown
-action=/etc/acpi/handlers/volume down
+action=/etc/acpi/handlers/volume -

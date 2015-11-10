@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/usr/bin/bash
 bl_dev=/sys/class/backlight/acpi_video0
 step=1
 

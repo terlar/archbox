@@ -1,42 +1,18 @@
-#!/bin/bash
-
-if amixer | grep -q "Simple mixer control 'Master'"; then
-    ALSACTRL=Master
-    ALSAINPT="Capture"
-elif amixer | grep -q "Simple mixer control 'Speaker'"; then
-    ALSACTRL=Speaker
-    ALSAINPT="Analog In"
-else
-    ALSACTRL="$(amixer | head -n 1 | sed "s/.*'\(.*\)'.*/\1/")"
-    ALSAINPT="Capture"
-fi
-
-
-_adj=1 # used if no value supplied, e.g. volume up OR volume up 10
+#!/usr/bin/bash
+step=5
 
 case $1 in
-    up)     amixer -- set "$ALSACTRL" ${2:-$_adj}%+ unmute -q || true
-            ;;
-    mid)    amixer -- set "$ALSACTRL" 75% unmute -q
-            ;;
-    max)    amixer -- set "$ALSACTRL" 100% unmute -q
-            ;;
-    down)   amixer -- set "$ALSACTRL" ${2:-$_adj}%- unmute -q
-            ;;
-    mute)   amixer -- set "$ALSACTRL" mute -q
-            ;;
-    unmute) amixer -- set "$ALSACTRL" unmute -q
-            ;;
-    toggle) amixer set "$ALSACTRL" toggle -q
-            ;;
-    mic)
-            case $2 in
-            mute)   amixer set "$ALSAINPT" mute -q
-                    ;;
-            unmute) amixer set "$ALSAINPT" unmute -q
-                    ;;
-            toggle) amixer set "$ALSAINPT" toggle -q
-                    ;;
-            esac
-            ;;
+	-) cmd="amixer -- sset Master $step%- unmute";;
+	+) cmd="amixer -- sset Master $step%+ unmute";;
+	toggle) cmd="amixer -- sset Master toggle";;
 esac
+
+for user in $(w -h | awk '{print $1}' | uniq); do
+	pulse_pid=$(pgrep -ou "$user" pulseaudio)
+	pulse_env="/proc/$pulse_pid/environ"
+	if [ -f "$pulse_env" ]; then
+		export $(grep -z XDG_RUNTIME_DIR $pulse_env)
+	fi
+
+	su -c "$cmd" "$user"
+done
