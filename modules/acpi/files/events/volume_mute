@@ -1,2 +1,2 @@
 event=button/mute
-action=amixer -q set Master toggle
+action=/etc/acpi/handlers/volume toggle

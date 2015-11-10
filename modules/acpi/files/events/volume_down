@@ -1,2 +1,2 @@
 event=button/volumedown
-action=amixer -q set Master 5-
+action=/etc/acpi/handlers/volume down

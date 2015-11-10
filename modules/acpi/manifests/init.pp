@@ -51,4 +51,15 @@ class acpi {
       File['/etc/acpi/handlers'],
     ],
   }
+
+  file { '/etc/acpi/handlers/volume':
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0755',
+    source  => 'puppet:///modules/acpi/handlers/volume',
+    require => [
+      Package[acpi],
+      File['/etc/acpi/handlers'],
+    ],
+  }
 }
