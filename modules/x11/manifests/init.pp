@@ -35,6 +35,14 @@ class x11 {
     require => Package['xorg-server'],
   }
 
+  file { '/etc/X11/xorg.conf.d/90-custom-kbd.conf':
+    ensure  => present,
+    owner   => 'root',
+    group   => 'root',
+    source  => 'puppet:///modules/x11/xorg.conf.d/90-custom-kbd.conf',
+    require => Package['xorg-server'],
+  }
+
   file { '/etc/lightdm/lightdm-gtk-greeter.conf':
     ensure  => present,
     owner   => 'root',
