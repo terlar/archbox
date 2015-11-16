@@ -1,3 +1,8 @@
 class scanning {
-  package { 'sane': }
+  package {
+    [
+      'sane',
+      'simple-scan',
+    ]:
+  }
 }
