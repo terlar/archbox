@@ -13,5 +13,5 @@ for user in $(w -h | awk '{print $1}' | uniq); do
 		export $(grep -z DBUS_SESSION_BUS_ADDRESS $dbus_env)
 	fi
 
-	su -c "$cmd" "$user"
+	su "$user" -c "$cmd"
 done

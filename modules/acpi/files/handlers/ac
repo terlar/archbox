@@ -1,0 +1,20 @@
+#!/usr/bin/bash
+w -hs | grep ':[0-9]\W' | head -1 | awk '{print $(1),$NF}' | while read user cmd; do
+	x_pid=$(pgrep -ou "$user" dbus-daemon)
+	x_env="/proc/$x_pid/environ"
+
+	if [ -f "$x_env" ]; then
+		export $(grep -z DISPLAY $x_env)
+		export $(grep -z XAUTHORITY $x_env)
+	fi
+
+	inactive=$(su "$user" -c xrandr | grep -w disconnected | cut -d' ' -f1)
+	for screen in $inactive; do
+		su "$user" -c "xrandr --output $screen --off"
+	done
+
+	active=$(su "$user" -c xrandr | grep -w connected | cut -d' ' -f1)
+	for screen in $active; do
+		su "$user" -c "xrandr --output $screen --auto"
+	done
+done

@@ -14,5 +14,5 @@ for user in $(w -h | awk '{print $1}' | uniq); do
 		export $(grep -z XDG_RUNTIME_DIR $pulse_env)
 	fi
 
-	su -c "$cmd" "$user"
+	su "$user" -c "$cmd"
 done
