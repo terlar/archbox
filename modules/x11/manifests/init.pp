@@ -27,6 +27,11 @@ class x11 {
     ]: provider => 'aur',
   }
 
+  package { 'autorandr':
+    provider => 'aur',
+    name     => 'autorandr-git',
+  }
+
   file { '/etc/X11/xorg.conf.d/10-monitor.conf':
     ensure  => present,
     owner   => 'root',

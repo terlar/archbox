@@ -8,13 +8,5 @@ w -hs | grep ':[0-9]\W' | head -1 | awk '{print $(1),$NF}' | while read user cmd
 		export $(grep -z XAUTHORITY $x_env)
 	fi
 
-	inactive=$(su "$user" -c xrandr | grep -w disconnected | cut -d' ' -f1)
-	for screen in $inactive; do
-		su "$user" -c "xrandr --output $screen --off"
-	done
-
-	active=$(su "$user" -c xrandr | grep -w connected | cut -d' ' -f1)
-	for screen in $active; do
-		su "$user" -c "xrandr --output $screen --auto"
-	done
+	su "$user" -c 'autorandr --change --default mobile'
 done
