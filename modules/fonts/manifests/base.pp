@@ -10,7 +10,6 @@ class fonts::base {
     [
       'ttf-input',
       'ttf-mac-fonts',
-      'ttf-ms-win10',
     ]: provider => 'aur',
   }
   package { 'ttf-google-fonts':
