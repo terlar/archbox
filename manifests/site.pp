@@ -5,12 +5,12 @@ Exec {
     '/sbin',
     '/usr/bin',
     '/usr/sbin',
-    '/usr/local/bin'
+    '/usr/local/bin',
   ]
 }
 
 Package {
-  ensure  => 'installed'
+  ensure  => 'installed',
 }
 
 class core {
@@ -30,7 +30,7 @@ node default {
   include core
   class { 'fish':
     git     => false,
-    plugins => false
+    plugins => false,
   }
 }
 
@@ -38,7 +38,11 @@ node falcon {
   include core
   class { 'fish':
     git     => true,
-    plugins => true
+    plugins => true,
+  }
+  class { 'vim':
+    git => true,
+    neo => true,
   }
 
   include acpi
@@ -52,9 +56,6 @@ node falcon {
   include gui::audio
   include gui::browser
   include gui::pdf
-  class { 'vim':
-    gui => true
-  }
 
   include x11::joystick
 
@@ -74,7 +75,11 @@ node horse {
   include core
   class { 'fish':
     git     => true,
-    plugins => true
+    plugins => true,
+  }
+  class { 'vim':
+    git => true,
+    neo => true,
   }
 
   include acpi
@@ -88,9 +93,6 @@ node horse {
   include gui::audio
   include gui::browser
   include gui::pdf
-  class { 'vim':
-    gui => true
-  }
 
   include development
   include mail
