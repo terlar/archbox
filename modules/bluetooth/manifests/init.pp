@@ -11,8 +11,13 @@ class bluetooth($ensure=stopped) {
     $service_enabled = false
   }
 
-  package { 'bluez': }
-  package { 'bluez-utils': }
+  package {
+    [
+      'bluez',
+      'bluez-utils',
+      'blueproximity',
+    ]:
+  }
 
   service { 'bluetooth':
     ensure => $service_ensure,
@@ -23,4 +28,26 @@ class bluetooth($ensure=stopped) {
 
   Package[bluez-utils] ~> Service[bluetooth]
   Package[bluez]       ~> Service[bluetooth]
+
+  file { '/etc/udev/rules.d/10-bluetooth.rules':
+    ensure => present,
+    owner  => 'root',
+    group  => 'root',
+    source => 'puppet:///modules/bluetooth/udev/10-bluetooth.rules'
+  }
+
+  file { '/etc/systemd/system/bluetooth-auto-power@.service':
+    ensure => present,
+    owner  => 'root',
+    group  => 'root',
+    source => 'puppet:///modules/bluetooth/systemd/system/bluetooth-auto-power@.service'
+  }
+
+  service { 'bluetooth-auto-power@0':
+    ensure  => running,
+    enable  => true,
+    require => [
+      File['/etc/systemd/system/bluetooth-auto-power@.service'],
+    ]
+  }
 }

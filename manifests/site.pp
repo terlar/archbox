@@ -84,7 +84,9 @@ node horse {
 
   include acpi
   include audio
-  include bluetooth
+  class { 'bluetooth':
+    ensure => running
+  }
   include idevice
   include printing
   include ssh::client
