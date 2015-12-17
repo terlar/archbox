@@ -15,8 +15,11 @@ class bluetooth($ensure=stopped) {
     [
       'bluez',
       'bluez-utils',
-      'blueproximity',
     ]:
+  }
+
+  package { 'blueproximity':
+    provider => 'aur',
   }
 
   service { 'bluetooth':
