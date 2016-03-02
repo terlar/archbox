@@ -11,6 +11,7 @@ class fonts::extended {
       'adobe-source-han-sans-tw-fonts',
       'ttf-tibetan-machine',
       'ttf-indic-otf',
+      'ttf-cwtex-q-fonts',
     ]:
   }
 }
