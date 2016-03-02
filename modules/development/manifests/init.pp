@@ -15,7 +15,12 @@ class development {
   package {
     [
       'nodejs-jsonlint',
-      'aws-cli',
+      'python-botocore',
     ]: provider => 'aur',
+  }
+
+  package { 'aws-cli':
+      provider => 'aur',
+      require  => Package['python-botocore'],
   }
 }
