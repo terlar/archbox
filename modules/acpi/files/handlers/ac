@@ -8,5 +8,9 @@ w -hs | grep ':[0-9]\W' | head -1 | awk '{print $(1),$NF}' | while read user cmd
 		export $(grep -z XAUTHORITY $x_env)
 	fi
 
-	su "$user" -c 'autorandr --change --default mobile'
+	if acpi -a | grep -q 'on-line'; then
+		su "$user" -c 'xbacklight -set 100'
+	else
+		su "$user" -c 'xbacklight -set 50'
+	fi
 done
