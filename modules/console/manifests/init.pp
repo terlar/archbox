@@ -36,6 +36,7 @@ class console {
       'jrnl',
       'httping',
       'playerctl',
+      'dasht',
     ]: provider => 'aur',
   }
 
