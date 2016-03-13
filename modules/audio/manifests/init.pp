@@ -1,7 +1,19 @@
-class audio {
+class audio($raop=false) {
   group { 'audio': ensure => present }
 
-  package { 'pulseaudio': }
+  if $raop == true {
+    $package_name = 'pulseaudio-raop2'
+    $package_provider = 'aur'
+  } else {
+    $package_name = 'pulseaudio'
+    $package_provider = 'pacman'
+  }
+
+  package { 'pulseaudio':
+    provider => $package_provider,
+    name     => $package_name,
+  }
+
   package { 'pulseaudio-alsa': }
   package { 'alsa-utils': }
 }

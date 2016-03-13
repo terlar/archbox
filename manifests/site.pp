@@ -44,9 +44,11 @@ node falcon {
     git => true,
     neo => true,
   }
+  class { 'audio':
+    raop => true,
+  }
 
   include acpi
-  include audio
   include bluetooth
   include idevice
   include printing
