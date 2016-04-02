@@ -163,7 +163,7 @@ class users::terje inherits users {
       File["${home}/.xmonad/lib"]
     ]
   } ->
-  exec { 'fish install.fish --overwrite-all':
+  exec { 'make install':
     cwd         => $dotfiles,
     environment => "HOME=${home}",
     user        => $username
