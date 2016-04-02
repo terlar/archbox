@@ -23,4 +23,8 @@ class development {
       provider => 'aur',
       require  => Package['python-botocore'],
   }
+
+  package { 'google-cloud-sdk':
+      provider => 'aur'
+  }
 }
