@@ -63,6 +63,7 @@ node falcon {
 
   include development
   include mail
+  include calendar
   include music
   include torrent
 
@@ -100,6 +101,7 @@ node horse {
 
   include development
   include mail
+  include calendar
   include music
   include torrent
 
