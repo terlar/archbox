@@ -1,5 +1,5 @@
 class gui::video {
-  package { 'mplayer': }
+  package { 'mpv': }
   package { 'mencoder': }
   package { 'mkvtoolnix-cli': }
   package { 'handbreak-cli': }
