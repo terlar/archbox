@@ -7,6 +7,11 @@ class base::filesystems {
     ]:
   }
 
+  package { 'tmsu':
+    provider => 'aur',
+    name     => 'tmsu',
+  }
+
   service { 'udisks2':
     ensure  => running,
     enable  => true,
