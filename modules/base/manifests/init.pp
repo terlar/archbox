@@ -16,6 +16,11 @@ class base {
     ]:
   }
 
+  package { 'fpp':
+    provider => 'aur',
+    name     => 'fpp-git',
+  }
+
   file { '/etc/systemd/journald.conf':
     ensure => present,
     owner  => 'root',
