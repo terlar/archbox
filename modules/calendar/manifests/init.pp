@@ -5,6 +5,6 @@ class calendar {
 
   package { 'vdirsyncer':
     provider => 'aur',
-    name     => 'python-vdirsyncer-git',
+    name     => 'vdirsyncer-git',
   }
 }
