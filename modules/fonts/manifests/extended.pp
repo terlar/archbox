@@ -14,7 +14,15 @@ class fonts::extended {
     ]:
   }
 
-  package { 'ttf-cwtex-q-fonts':
+  package { 'ttf-babelstone-han':
+      provider => 'aur',
+  }
+
+  package { 'ttf-adobe-fangsong':
+      provider => 'aur',
+  }
+
+  package { 'ttf-adobe-kaiti':
       provider => 'aur',
   }
 }
