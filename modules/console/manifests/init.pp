@@ -37,6 +37,7 @@ class console {
       'httping',
       'playerctl',
       'dasht',
+      'http-prompt',
     ]: provider => 'aur',
   }
 
