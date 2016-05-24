@@ -20,11 +20,15 @@ class development {
   }
 
   package { 'aws-cli':
-      provider => 'aur',
-      require  => Package['python-botocore'],
+    provider => 'aur',
+    require  => Package['python-botocore'],
   }
 
   package { 'google-cloud-sdk':
-      provider => 'aur'
+    provider => 'aur'
+  }
+
+  package { 'mycli':
+    provider => 'aur'
   }
 }
