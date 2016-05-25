@@ -17,6 +17,10 @@ class development::java {
     name     => 'javafx-scenebuilder-bin',
   }
 
+  package { 'mysql-connector-java':
+    provider => 'aur'
+  }
+
   package { 'eclim':
     provider => 'aur',
     name     => 'eclim',
