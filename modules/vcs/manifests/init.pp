@@ -10,4 +10,8 @@ class vcs {
     provider => 'aur',
     name     => 'hub-bin',
   }
+
+  package { 'ghi':
+    provider => 'aur',
+  }
 }
