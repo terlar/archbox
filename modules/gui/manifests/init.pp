@@ -20,6 +20,10 @@ class gui {
     ]:
   }
 
+  package { 'xcalib':
+      provider => 'aur',
+  }
+
   file { '/usr/share/pixmaps/wallpaper.png':
     ensure  => present,
     owner   => 'root',
