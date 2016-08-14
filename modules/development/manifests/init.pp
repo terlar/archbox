@@ -9,6 +9,7 @@ class development {
       'pygmentize',
       'jq',
       'ctags',
+      'shellcheck',
     ]:
   }
 
