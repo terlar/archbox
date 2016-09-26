@@ -16,4 +16,8 @@ class audio($raop=false) {
 
   package { 'pulseaudio-alsa': }
   package { 'alsa-utils': }
+
+  package { 'pulseaudio-dlna':
+    provider => 'aur',
+  }
 }
