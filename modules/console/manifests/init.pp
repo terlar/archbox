@@ -26,6 +26,7 @@ class console {
       'texlive-core',
       'the_silver_searcher',
       'moc',
+      'ripgrep',
     ]:
   }
 
