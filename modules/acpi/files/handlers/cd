@@ -7,7 +7,7 @@ case $1 in
 esac
 
 for user in $(w -h | awk '{print $1}' | uniq); do
-	dbus_pid=$(pgrep -ou "$user" dbus-daemon)
+	dbus_pid=$(pgrep -xou "$user" dbus-daemon)
 	dbus_env="/proc/$dbus_pid/environ"
 	if [ -f "$dbus_env" ]; then
 		export $(grep -z DBUS_SESSION_BUS_ADDRESS $dbus_env)
