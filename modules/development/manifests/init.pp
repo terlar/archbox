@@ -10,6 +10,7 @@ class development {
       'jq',
       'ctags',
       'shellcheck',
+      'plantuml',
     ]:
   }
 
