@@ -27,6 +27,7 @@ class console {
       'the_silver_searcher',
       'moc',
       'ripgrep',
+      'pssh',
     ]:
   }
 
