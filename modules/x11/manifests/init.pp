@@ -1,5 +1,4 @@
 class x11 {
-  include x11::launching
   include x11::locking
   include x11::notifying
   include x11::im
