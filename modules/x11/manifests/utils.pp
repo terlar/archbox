@@ -3,8 +3,17 @@ class x11::utils {
     [
       'xorg-utils',
       'xorg-apps',
-      'rofi',
     ]:
+  }
+
+  package { 'rofi':
+      provider => 'aur',
+      name     => 'rofi-git',
+  }
+
+  package { 'rofi-surfraw':
+      provider => 'aur',
+      name     => 'rofi-surfraw-git',
   }
 
   package { 'autopass':
