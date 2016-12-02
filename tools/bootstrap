@@ -17,12 +17,20 @@ pacman -Sy
 pacman -S --noconfirm --needed ruby curl
 
 # Install Puppet and Facter
-gem install puppet facter --no-ri --no-rdoc --no-user-install
+gem install puppet facter librarian-puppet --no-ri --no-rdoc --no-user-install
 
 # Create the Puppet group so it can run
 groupadd puppet
 
 cp `gem contents puppet | grep puppet.service` /usr/lib/systemd/system
 
+# Install Puppet dependencies
+librarian-puppet install
+
+# Install dependencies for package building (AUR)
+pacman -S --noconfirm --needed base-devel git
+
 # Add aurget for AUR package support
-pacman --noconfirm --needed -U packages/aurget-4.6.0-1-any.pkg.tar.xz
+pacman --noconfirm --needed -U packages/aurget-4.7.2-1-any.pkg.tar.xz
+cp tools/aurget-wrapper /usr/bin/aurget-wrapper
+chmod +x /usr/bin/aurget-wrapper

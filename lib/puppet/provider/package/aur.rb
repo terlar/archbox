@@ -5,7 +5,7 @@ require 'uri'
 Puppet::Type.type(:package).provide :aur, :parent => Puppet::Provider::Package do
   desc "Support for the Pacman-like AUR helper used in Archlinux."
 
-  commands :aurget => "/usr/bin/aurget"
+  commands :aurget => "/usr/bin/aurget-wrapper"
   commands :pacman => "/usr/bin/pacman"
 
   confine :operatingsystem => [:archlinux, :manjarolinux]

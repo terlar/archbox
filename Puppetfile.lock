@@ -1,12 +1,12 @@
 FORGE
-  remote: http://forge.puppetlabs.com
+  remote: https://forgeapi.puppetlabs.com
   specs:
-    camptocamp/kmod (0.0.1)
-    puppetlabs/stdlib (4.2.2)
-    puppetlabs/vcsrepo (0.2.0)
+    camptocamp-kmod (2.1.0)
+    puppetlabs-stdlib (4.13.1)
+    puppetlabs-vcsrepo (1.4.0)
 
 DEPENDENCIES
-  camptocamp/kmod (>= 0)
-  puppetlabs/stdlib (>= 0)
-  puppetlabs/vcsrepo (>= 0)
+  camptocamp-kmod (>= 0)
+  puppetlabs-stdlib (>= 0)
+  puppetlabs-vcsrepo (>= 0)
 

@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+main() {
+	runuser -l $USER -c "aurget $*"
+}
+
+main "$@"
